@@ -1,5 +1,7 @@
 #!/bin/bash
 
+env
+
 export DEBEMAIL=james@openastro.org
 export DEBFULLNAME="James Fidell"
 
@@ -13,9 +15,14 @@ quiltconf=$HOME/.quiltrc-dpkg
 mkdir $srcdir
 cd $srcdir
 tar zxf ../libaltaircam-$version.tar.gz
-chmod -x demo/*.*
-chmod -x demo/Makefile
-dh_make -y -l -f ../libaltaircam-$version.tar.gz
+test -d demo && ( chmod -x demo/*.* Makefile )
+YFLAG=-y
+dh_make -v | fgrep -q '1998-2011'
+if [ $? -eq 0 ]
+then
+  YFLAG=''
+fi
+dh_make $YFLAG -l -f ../libaltaircam-$version.tar.gz
 
 cp ../debfiles/control $debdir
 cp ../debfiles/copyright $debdir
@@ -25,6 +32,8 @@ cp ../debfiles/libaltaircam.dirs $debdir
 cp ../debfiles/libaltaircam.links $debdir
 cp ../debfiles/libaltaircam.install $debdir
 cp ../debfiles/libaltaircam.symbols $debdir
+cp ../debfiles/libaltaircam-dev.dirs $debdir
+cp ../debfiles/libaltaircam-dev.install $debdir
 
 echo 9 >> $debdir/compat
 
