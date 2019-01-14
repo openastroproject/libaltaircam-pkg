@@ -1,8 +1,6 @@
 #!/bin/bash
 
-env
-
-export DEBEMAIL=james@openastro.org
+export DEBEMAIL=james@openastroproject.org
 export DEBFULLNAME="James Fidell"
 
 version=`cat version`
@@ -29,7 +27,6 @@ cp ../debfiles/copyright $debdir
 cp ../debfiles/changelog $debdir
 cp ../debfiles/watch $debdir
 cp ../debfiles/libaltaircam.dirs $debdir
-cp ../debfiles/libaltaircam.links $debdir
 cp ../debfiles/libaltaircam.install $debdir
 cp ../debfiles/libaltaircam.symbols $debdir
 cp ../debfiles/libaltaircam-dev.dirs $debdir
