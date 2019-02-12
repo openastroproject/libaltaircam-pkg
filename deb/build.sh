@@ -32,7 +32,7 @@ cp ../debfiles/libaltaircam.symbols $debdir
 cp ../debfiles/libaltaircam-dev.dirs $debdir
 cp ../debfiles/libaltaircam-dev.install $debdir
 
-echo 9 >> $debdir/compat
+echo 10 > $debdir/compat
 
 sed -e '/^.*[ |]configure./a\
         ldconfig\
