@@ -1,2 +1,2 @@
 # libaltaircam-pkg
-Packaging scripts etc. for libaltaircam.so for old Altair astronomy cameras
+Packaging scripts etc. for libaltaircam.so for Altair astronomy cameras
