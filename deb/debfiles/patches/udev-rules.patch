@@ -1,0 +1,113 @@
+Create udev ruleset for Altair cameras
+--- 70-altair-cameras.rules	1970-01-01 01:00:00.000000000 +0100
++++ 70-altair-cameras.rules	2018-09-25 00:53:43.247858211 +0100
+@@ -0,0 +1,109 @@
++#
++# 70-altair-cameras.rules -- Udev rules for Altair cameras
++#
++# Copyright 2016,2018,2019 James Fidell (james@openastroproject.org)
++#
++# License:
++#
++# This file is part of the Open Astro Project.
++#
++# The Open Astro Project is free software: you can redistribute it and/or
++# modify it under the terms of the GNU General Public License as published
++# by the Free Software Foundation, either version 3 of the License, or
++# (at your option) any later version.
++#
++# The Open Astro Project is distributed in the hope that it will be
++# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
++# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++# GNU General Public License for more details.
++#
++# You should have received a copy of the GNU General Public License
++# along with the Open Astro Project.  If not, see
++# <http://www.gnu.org/licenses/>.
++#
++# Set new minimum value for usbfs memory
++SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="0547", RUN+="/bin/sh -c 'test -f /sys/module/usbcore/parameters/usbfs_memory_mb && test `cat /sys/module/usbcore/parameters/usbfs_memory_mb` -lt 256 && echo 256 >/sys/module/usbcore/parameters/usbfs_memory_mb'"
++SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="16d0", RUN+="/bin/sh -c 'test -f /sys/module/usbcore/parameters/usbfs_memory_mb && test `cat /sys/module/usbcore/parameters/usbfs_memory_mb` -lt 256 && echo 256 >/sys/module/usbcore/parameters/usbfs_memory_mb'"
++
++# AAIMX185C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="3723", TAG+="uaccess"
++
++# AAIMX178C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="4000", TAG+="uaccess"
++
++# AAIMX178C (USB2)
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="4001", TAG+="uaccess"
++
++# AAIMX302C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="4006", TAG+="uaccess"
++
++# AAIMX302C (USB2)
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="4007", TAG+="uaccess"
++
++# AAIMX185C (USB2)
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="4723", TAG+="uaccess"
++
++# AAICX618M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8031", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8306", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8307", TAG+="uaccess"
++
++# AAICX429C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8044", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="804b", TAG+="uaccess"
++
++# AAICX429M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8045", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="804d", TAG+="uaccess"
++
++# AAICX829C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8046", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="804a", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="804c", TAG+="uaccess"
++
++# AAICX829M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="8047", TAG+="uaccess"
++
++# GPCAMMT9M034M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="b121", TAG+="uaccess"
++
++# GPCAMAR0130C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="b122", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="b123", TAG+="uaccess"
++
++# GPCAMAR0130M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="b124", TAG+="uaccess"
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="b134", TAG+="uaccess"
++
++# GPCAMAR0330C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="b310", TAG+="uaccess"
++
++# AAGFIMX185C (USB2)
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="e217", TAG+="uaccess"
++
++# AAGFIMX185C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="e317", TAG+="uaccess"
++
++# 16d0 appears to belong to Systemax, so I've no idea why these cameras use
++# that vendor ID
++
++# GPCAMMT9M034M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b2a", TAG+="uaccess"
++
++# GPCAMAR0130C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b2b", TAG+="uaccess"
++
++# ALTAIRGP130C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b4f", TAG+="uaccess"
++
++# ALTAIRGP130M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b8b", TAG+="uaccess"
++
++# ALTAIRGP224C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b8c", TAG+="uaccess"
++
++# AAGFIMX185C
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b2c", TAG+="uaccess"
++
++# AAGFIMX185C (USB2)
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b2d", TAG+="uaccess"

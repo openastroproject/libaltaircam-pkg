@@ -10,6 +10,7 @@ Provides:       libaltaircam = %{version}-%{release}
 Obsoletes:      libaltaircam < 1.32.13483
 Source:         ../libaltaircam-%{version}.tar.gz
 Patch0:         pkg-config.patch
+Patch1:         udev-rules.patch
 
 %description
 libaltaircam is a user-space driver for Altair astronomy cameras.
@@ -36,6 +37,7 @@ sed -e "s!@LIBDIR@!%{_libdir}!g" -e "s!@VERSION@!%{version}!g" < \
 
 %install
 mkdir -p %{buildroot}%{_libdir}/pkgconfig
+mkdir -p %{buildroot}/etc/udev/rules.d
 
 case %{_arch} in
   x86_64)
@@ -49,15 +51,19 @@ esac
 
 ln -sf %{name}.so.%{version} %{buildroot}%{_libdir}/%{name}.so.1
 cp *.pc %{buildroot}%{_libdir}/pkgconfig
+cp 70-altair-cameras.rules %{buildroot}/etc/udev/rules.d
 
 %post
 /sbin/ldconfig
+/sbin/udevadm control --reload-rules
 
 %postun
 /sbin/ldconfig
+/sbin/udevadm control --reload-rules
 
 %files
 %{_libdir}/*.so.*
+%{_sysconfdir}/udev/rules.d/*.rules
 
 %changelog
 * Sun Jan 13 2019 James Fidell <james@openastroproject.org> - 1.32.13483
