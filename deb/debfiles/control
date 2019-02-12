@@ -16,6 +16,6 @@ Package: libaltaircam-dev
 Section: libdevel
 Architecture: any
 Depends: libaltaircam (= ${binary:Version}), ${misc:Depends}
-Description: Altair camera interface library development files.
+Description: Altair camera interface library development files
  Development headers for libaltaircam, a userspace library for controlling
  Altair astronomy cameras
