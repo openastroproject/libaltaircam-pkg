@@ -8,7 +8,7 @@ License:	GPLv2+
 Prefix:         %{_prefix}
 Provides:       libaltaircam = %{version}-%{release}
 Obsoletes:      libaltaircam < 1.32.13483
-Source:         ../libaltaircam-%{version}.tar.gz
+Source:         libaltaircam-%{version}.tar.gz
 Patch0:         pkg-config.patch
 Patch1:         udev-rules.patch
 
@@ -29,6 +29,7 @@ developing applications that use %{name}.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
 
@@ -41,7 +42,7 @@ mkdir -p %{buildroot}/etc/udev/rules.d
 
 case %{_arch} in
   x86_64)
-    cp linux/x64/libaltaircam.so %{buildroot}%{_libdir}/libaltaircam.so.%{version}
+    cp x64/libaltaircam.bin %{buildroot}%{_libdir}/libaltaircam.so.%{version}
     ;;
   *)
     echo "unknown target architecture %{_arch}"
@@ -64,6 +65,9 @@ cp 70-altair-cameras.rules %{buildroot}/etc/udev/rules.d
 %files
 %{_libdir}/*.so.*
 %{_sysconfdir}/udev/rules.d/*.rules
+
+%files devel
+%{_libdir}/pkgconfig/*.pc
 
 %changelog
 * Sun Jan 13 2019 James Fidell <james@openastroproject.org> - 1.32.13483
