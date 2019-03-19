@@ -46,7 +46,7 @@ sed -e "s/DEBVERSION/$version/g" < ../debfiles/rules.overrides >> $debdir/rules
 
 rm $debdir/README.Debian
 rm $debdir/README.source
-rm $debdir/libaltaircam-docs.docs
+rm -f $debdir/libaltaircam-docs.docs
 rm $debdir/libaltaircam1.*
 rm $debdir/*.[Ee][Xx]
 
