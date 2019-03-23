@@ -39,10 +39,12 @@ sed -e "s!@LIBDIR@!%{_libdir}!g" -e "s!@VERSION@!%{version}!g" < \
 %install
 mkdir -p %{buildroot}%{_libdir}/pkgconfig
 mkdir -p %{buildroot}/etc/udev/rules.d
+mkdir -p %{buildroot}%{_includedir}
 
 case %{_arch} in
   x86_64)
     cp x64/libaltaircam.bin %{buildroot}%{_libdir}/libaltaircam.so.%{version}
+		cp altaircam.h %{buildroot}%{_includedir}
     ;;
   *)
     echo "unknown target architecture %{_arch}"
@@ -67,6 +69,7 @@ cp 70-altair-cameras.rules %{buildroot}/etc/udev/rules.d
 %{_sysconfdir}/udev/rules.d/*.rules
 
 %files devel
+%{_includedir}/altaircam.h
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
