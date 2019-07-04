@@ -1,7 +1,7 @@
 Create udev ruleset for Altair cameras
 --- 70-altair-cameras.rules	1970-01-01 01:00:00.000000000 +0100
 +++ 70-altair-cameras.rules	2018-09-25 00:53:43.247858211 +0100
-@@ -0,0 +1,109 @@
+@@ -0,0 +1,112 @@
 +#
 +# 70-altair-cameras.rules -- Udev rules for Altair cameras
 +#
@@ -111,3 +111,6 @@ Create udev ruleset for Altair cameras
 +
 +# AAGFIMX185C (USB2)
 +SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b2d", TAG+="uaccess"
++
++# H174M
++SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0b8d", TAG+="uaccess"
