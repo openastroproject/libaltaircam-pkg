@@ -49,6 +49,8 @@ cp ../debfiles/libaltaircam-dev.install $debdir
 
 echo 10 > $debdir/compat
 
+cp ../patches/*.patch debfiles/patches
+
 sed -e '/^.*[ |]configure./a\
 	udevadm control --reload-rules || true' < $debdir/postinst.ex > $debdir/postinst
 chmod +x $debdir/postinst
