@@ -24,6 +24,8 @@ case $debversion in
 esac
 echo $compatversion > debfiles/compat
 
+cp ../patches/*.patch debfiles/patches
+
 tar zxf ../libaltaircam-$version.tar.gz
 cd $srcdir
 test -d demo && ( chmod -x demo/*.* Makefile )
@@ -48,8 +50,6 @@ cp ../debfiles/libaltaircam-dev.dirs $debdir
 cp ../debfiles/libaltaircam-dev.install $debdir
 
 echo 10 > $debdir/compat
-
-cp ../patches/*.patch debfiles/patches
 
 sed -e '/^.*[ |]configure./a\
 	udevadm control --reload-rules || true' < $debdir/postinst.ex > $debdir/postinst
