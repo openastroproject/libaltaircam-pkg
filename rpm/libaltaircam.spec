@@ -1,13 +1,13 @@
 %define debug_package %{nil}
 
 Name:           libaltaircam
-Version:        1.47.17497
+Version:        1.49.18914
 Release:        0
 Summary:        Altair camera support library
 License:	GPLv2+
 Prefix:         %{_prefix}
 Provides:       libaltaircam = %{version}-%{release}
-Obsoletes:      libaltaircam < 1.47.17497
+Obsoletes:      libaltaircam < 1.49.18914
 Source:         libaltaircam-%{version}.tar.gz
 Patch0:         pkg-config.patch
 Patch1:         udev-rules.patch
@@ -20,7 +20,7 @@ Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Provides:       libaltaircam-devel = %{version}-%{release}
-Obsoletes:      libaltaircam-devel < 1.47.17497
+Obsoletes:      libaltaircam-devel < 1.49.18914
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -73,6 +73,6 @@ cp 70-altair-cameras.rules %{buildroot}/etc/udev/rules.d
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
-* Fri Sep 4 2020 James Fidell <james@openastroproject.org> - 1.47.17497
+* Wed Jun 30 2021 James Fidell <james@openastroproject.org> - 1.49.18914
 - Initial RPM release
 
