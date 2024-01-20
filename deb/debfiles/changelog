@@ -1,5 +1,5 @@
-libaltaircam (1.54.23926-1) xenial; urgency=medium
+libaltaircam (1.55.24239-1) jammy; urgency=medium
 
   * Initial release
 
- -- James Fidell <james@openastroproject.org>  Fri, 15 Dec 2023 00:16:55 +0000
+ -- James Fidell <james@openastroproject.org>  Fri, 5 Jan 2024 22:24:55 +0000
