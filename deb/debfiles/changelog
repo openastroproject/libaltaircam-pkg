@@ -1,5 +1,54 @@
+libaltaircam (1.55.24621-1) jammy; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Tue, 6 Feb 2024 17:45:00 +0000
+
 libaltaircam (1.55.24239-1) jammy; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Fri, 5 Jan 2024 22:24:55 +0000
+
+libaltaircam (1.54.23926-1) xenial; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Fri, 15 Dec 2023 00:16:55 +0000
+
+libaltaircam (1.49.18914-1) xenial; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Wed, 30 Jun 2021 22:31:55 +0100
+
+libaltaircam (1.47.17497-1) xenial; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Fri, 4 Sep 2020 00:38:55 +0100
+
+libaltaircam (1.39.15364-2) xenial; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Sat, 23 Nov 2019 00:19:55 +0100
+
+
+libaltaircam (1.39.15364-1) xenial; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Sat, 23 Nov 2019 00:19:55 +0100
+
+libaltaircam (1.32.13483-1) xenial; urgency=medium
+
+  * Update from upstream
+
+ -- James Fidell <james@openastroproject.org>  Sun, 13 Jan 2019 00:01:55 +0100
+
+libaltaircam (1.6.5660-1) xenial; urgency=medium
 
   * Initial release
 
- -- James Fidell <james@openastroproject.org>  Fri, 5 Jan 2024 22:24:55 +0000
+ -- James Fidell <james@openastroproject.org>  Sun, 30 Jul 2017 22:18:55 +0100

@@ -1,13 +1,13 @@
 %define debug_package %{nil}
 
 Name:           libaltaircam
-Version:        1.55.24239
+Version:        1.55.24621
 Release:        0
 Summary:        Altair camera support library
 License:	GPLv2+
 Prefix:         %{_prefix}
 Provides:       libaltaircam = %{version}-%{release}
-Obsoletes:      libaltaircam < 1.55.24239
+Obsoletes:      libaltaircam < 1.55.24621
 Source:         libaltaircam-%{version}.tar.gz
 Patch0:         pkg-config.patch
 Patch1:         udev-rules.patch
@@ -20,7 +20,7 @@ Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Provides:       libaltaircam-devel = %{version}-%{release}
-Obsoletes:      libaltaircam-devel < 1.55.24239
+Obsoletes:      libaltaircam-devel < 1.55.24621
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -73,6 +73,19 @@ cp 70-altair-cameras.rules %{buildroot}/etc/udev/rules.d
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
-* Fri Jan 5 2024 James Fidell <james@openastroproject.org> - 1.55.24239-0
+* Tue Feb 6 2024 James Fidell <james@openastroproject.org> - 1.55.24621
+- Updates from upstream
+* Fri Jan 5 2024 James Fidell <james@openastroproject.org> - 1.55.24239
+- Updates from upstream
+* Fri Dec 15 2023 James Fidell <james@openastroproject.org> - 1.54.23926
+- Updates from upstream
+* Wed Jun 30 2021 James Fidell <james@openastroproject.org> - 1.49.18914
+- Updates from upstream
+* Fri Sep 4 2020 James Fidell <james@openastroproject.org> - 1.47.17497
+- Updates from upstream
+* Sat Nov 23 2019 James Fidell <james@openastroproject.org> - 1.39.15364
+- Updates from upstream
+* Sun Jan 13 2019 James Fidell <james@openastroproject.org> - 1.32.13483
+- Updates from upstream
+* Sun Jul 30 2017 James Fidell <james@openastroproject.org> - 1.6.5660-0
 - Initial RPM release
-
